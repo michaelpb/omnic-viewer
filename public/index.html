@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <title>Omnic Viewer Test Zone</title>
+  </head>
+  <body omnic-automount>
+    <h1>Omnic Viewer Test Zone</h1>
+
+    <h2>Documents: PDF</h2>
+    <img
+        src="%PUBLIC_URL%/test-media/imrtemplate_doc.200x200.jpg"
+        width="200"
+        height="200"
+        omnic-thumb
+        omnic-viewer="PDF"
+        omnic-viewer-src="%PUBLIC_URL%/test-media/imrtemplate_doc.pdf"
+    />
+
+    <h2>Image: JPEG</h2>
+    <img
+        src="%PUBLIC_URL%/test-media/libre_jpeg.200x200.jpg"
+        width="200"
+        height="200"
+        omnic-thumb
+        omnic-viewer="JPEG"
+        omnic-viewer-src="%PUBLIC_URL%/test-media/libre_jpeg.1000x1000.jpg"
+    />
+  </body>
+</html>
