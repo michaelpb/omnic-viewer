@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 /* import { Document, Page } from 'react-pdf'; */
 import { Document, Page } from 'react-pdf/build/entry.webpack';
 
+import './PdfViewer.css';
+
 
 
 export default class PdfViewer extends Component {
@@ -30,7 +32,7 @@ export default class PdfViewer extends Component {
     render() {
         const { pageNumber, numPages } = this.state;
         return (
-            <div>
+            <div className="Omnic--PdfViewer">
                 <div>
                     <button onClick={() => this.previousPage()}>&larr;</button>
                     Page {pageNumber} of {numPages}

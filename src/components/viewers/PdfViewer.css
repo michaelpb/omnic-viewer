@@ -1,0 +1,12 @@
+
+.Omnic--PdfViewer button {
+    background: gray;
+    border: 1px solid black;
+    color: black;
+}
+
+.Omnic--PdfViewer {
+    text-align: center;
+}
+
+
