@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import ViewerMounter from './ViewerMounter';
+import ViewerMounter from './components/ViewerMounter';
+import ViewerLoader from './ViewerLoader';
 import registerServiceWorker from './registerServiceWorker';
 
+const viewerLoader = new ViewerLoader();
+export default viewerLoader;
 
 export function renderReplace(component, element) {
     const container = document.createElement('div');
@@ -18,7 +21,7 @@ export function prepElement(element) {
     const width = element.getAttribute('width');
     const height = element.getAttribute('height');
     // Possibly get computed width + height?
-    const props = { viewerType, viewerSrc, thumbSrc, width, height };
+    const props = { viewerType, viewerSrc, thumbSrc, width, height, viewerLoader };
     const component = (<ViewerMounter {...props} />);
     renderReplace(component, element);
 }
