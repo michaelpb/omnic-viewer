@@ -1,5 +1,5 @@
 /*
-Singleton for loading viewers
+    Singleton for loading viewers
 */
 
 import PdfViewer from './components/viewers/PdfViewer';

@@ -5,8 +5,7 @@ import ViewerMounter from './components/ViewerMounter';
 import ViewerLoader from './ViewerLoader';
 import registerServiceWorker from './registerServiceWorker';
 
-const viewerLoader = new ViewerLoader();
-export default viewerLoader;
+export const viewerLoader = new ViewerLoader();
 
 export function renderReplace(component, element) {
     const container = document.createElement('div');
@@ -18,8 +17,8 @@ export function prepElement(element) {
     const viewerType = element.getAttribute('omnic-viewer');
     const viewerSrc = element.getAttribute('omnic-viewer-src');
     const thumbSrc = element.getAttribute('src');
-    const width = element.getAttribute('width');
-    const height = element.getAttribute('height');
+    const width = Number(element.getAttribute('width'));
+    const height = Number(element.getAttribute('height'));
     // Possibly get computed width + height?
     const props = { viewerType, viewerSrc, thumbSrc, width, height, viewerLoader };
     const component = (<ViewerMounter {...props} />);
