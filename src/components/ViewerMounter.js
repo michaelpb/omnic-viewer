@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import ViewerLoader from '../ViewerLoader';
+import ReloadingThumb from './ReloadingThumb';
+import ReloadingViewer from './ReloadingViewer';
 import './ViewerMounter.css';
 
 // Bring in image
@@ -10,6 +12,7 @@ import playButtonCircle from './play-button-circle.svg'
 
 export default class ViewerMounter extends Component {
     static propTypes = {
+        thumbRetryTimeout: PropTypes.number,
         thumbSrc: PropTypes.string,
         viewerLoader: PropTypes.instanceOf(ViewerLoader).isRequired,
         viewerType: PropTypes.string.isRequired,
@@ -18,10 +21,12 @@ export default class ViewerMounter extends Component {
         height: PropTypes.number.isRequired,
     }
 
+    static defaultProps = {
+        thumbRetryTimeout: 2000, // check after 2 seconds
+    }
+
     state = {
         modalVisible: false,
-        isLoading: true,
-        clickRequested: false,
     }
 
     renderViewer() {
@@ -46,52 +51,31 @@ export default class ViewerMounter extends Component {
     }
 
     onClick() {
-        if (this.state.isLoading) {
-            this.setState({ clickRequested: true, modalVisible: false });
-        } else {
-            this.setState({ clickRequested: false, modalVisible: true });
-        }
+        this.setState({ modalVisible: true });
     }
 
     render() {
-        const { clickRequested, isLoading } = this.state;
-
-        let floatingImage = null;
-        let floatingImageClasses = ['ViewMounter--float-image'];
-        if (clickRequested && isLoading) {
-            floatingImage = loadingCircle;
-            floatingImageClasses.push('ViewMounter--float-image-spin');
-        } else {
-            floatingImage = playButtonCircle;
-            floatingImageClasses.push('ViewMounter--invisible');
-        }
-
-        const floatingImageComponent = floatingImage === null ? null : (
-            <img
-                className={floatingImageClasses.join(' ')}
-                onClick={() => this.onClick()}
-                src={floatingImage}
-            />
-        );
-
-        const { height, width } = this.props;
+        const { height, width, viewerSrc } = this.props;
         const style = { height, width };
 
         return (
-            <div className="ViewerMounter" style={style}>
+            <div className="OC--ViewerMounter" style={style}>
                 <Modal
                     isOpen={this.state.modalVisible}
                     onRequestClose={() => this.setState({ modalVisible: false})}
                     contentLabel={this.props.viewerType}>
-                    {this.renderViewer()}
+                    <ReloadingViewer
+                        width={width}
+                        height={height}
+                        viewerSrc={viewerSrc}
+                    >
+                        {this.renderViewer()}
+                    </ReloadingViewer>
                 </Modal>
-                <img
-                    src={this.props.thumbSrc}
-                    width={width}
-                    height={height}
-                    onClick={() => this.onClick()}
+                <ReloadingThumb
+                    onClick={() => this.onClick() }
+                    {...this.props}
                 />
-                { floatingImageComponent }
             </div>
         );
     }

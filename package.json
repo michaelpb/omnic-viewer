@@ -11,10 +11,16 @@
     "react-scripts": "1.0.14",
     "stl-viewer": "0.5.0"
   },
+  "proxy": "http://localhost:3030",
   "scripts": {
-    "start": "react-scripts start",
+    "start-mock-server": "node mock-omnic/server.js",
+    "start-fe-server": "react-scripts start",
+    "start": "/bin/bash -c 'npm run start-mock-server & npm run start-fe-server'",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "express": "4.16.2"
   }
 }

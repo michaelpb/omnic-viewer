@@ -6,7 +6,6 @@ import { Document, Page } from 'react-pdf/build/entry.webpack';
 import './PdfViewer.css';
 
 
-
 export default class PdfViewer extends Component {
     static propTypes = {
         src: PropTypes.string.isRequired,

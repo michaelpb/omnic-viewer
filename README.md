@@ -63,7 +63,9 @@ manage multiple versions of node.
 
 2. Install dependencies: `npm install`
 
-3. Run test server: `npm start`
+3. Run test server: `npm start` -- this will start 2 test-servers, one to
+simulate a OmniC server, and another that serves the front-end and rebuilds
+React.JS as needed.
 
 # Contributing a converter
 

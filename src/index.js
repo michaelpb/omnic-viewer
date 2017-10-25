@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import ViewerMounter from './components/ViewerMounter';
 import ViewerLoader from './ViewerLoader';
 import registerServiceWorker from './registerServiceWorker';
@@ -35,7 +34,7 @@ export function mountAll(node = null) {
 }
 
 export function premountAll() {
-    const result = document.querySelector('body[omnic-automount]');
+    const result = document.querySelector('body[omnic-automount], script[omnic-automount]');
     if (result) {
         mountAll();
     }

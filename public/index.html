@@ -5,38 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
     <title>Omnic Viewer Test Zone</title>
+    <style>
+        body {
+            padding: 10px;
+            font-family: sans-serif;
+            /* Generated with http://gradient.quasi.ink */
+            background-size: cover;
+            background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAADCAYAAABfwxXFAAAAYklEQVQImQFXAKj/AJNqcf+bcXr/sJCS/6+Fhf+neH7/qYWD/5uBdv8AqYiD/5RtcP/AoJ3/p357/5Fmbv+jfnz/uZ+S/wCpkX//lHJw/8emoP/CmZX/jWRu/59ydf/Fpp//Yso4FM6eaUsAAAAASUVORK5CYII=");
+        }
+
+        h1, h2, h3, h4 {
+            color: white;
+        }
+
+        hr {
+            border: 3px white inset;
+        }
+
+        .side-by-side {
+            display: inline-block;
+            width: 300px;
+            height: 300px;
+        }
+    </style>
   </head>
   <body omnic-automount>
-    <h1>Omnic Viewer Test Zone</h1>
+    <h1>OmniC Viewer</h1>
 
-    <h2>Documents: PDF</h2>
+    <button onclick="fetch('/mock-omnic/clear-cache/').then(() => location.reload())">
+        Clear &amp; Refresh
+    </button>
+
+    <hr />
+
+    <h2>Slow server simulation</h2>
+
+    <h3>Documents: PDF</h3>
     <img
-        src="%PUBLIC_URL%/test-media/imrtemplate_doc.200x200.jpg"
+        src="%PUBLIC_URL%/media/imrtemplate_doc.200x200.jpg"
         width="200"
         height="200"
         omnic-thumb
         omnic-viewer="PDF"
-        omnic-viewer-src="%PUBLIC_URL%/test-media/imrtemplate_doc.pdf"
+        omnic-viewer-src="%PUBLIC_URL%/media/imrtemplate_doc.pdf"
+        omnic-viewer-api="%PUBLIC_URL%/media/imrtemplate_doc.pdf?just_checking=true"
     />
 
-    <h2>Mesh: STL</h2>
-    <img
-        src="%PUBLIC_URL%/test-media/gear_stl.200x200.jpg"
-        width="200"
-        height="200"
-        omnic-thumb
-        omnic-viewer="STL"
-        omnic-viewer-src="%PUBLIC_URL%/test-media/gear_stl.stl"
-    />
+    <hr />
+    <h2>Preloaded</h2>
 
-    <h2>Image: JPEG</h2>
-    <img
-        src="%PUBLIC_URL%/test-media/libre_jpeg.200x200.jpg"
-        width="200"
-        height="200"
-        omnic-thumb
-        omnic-viewer="JPEG"
-        omnic-viewer-src="%PUBLIC_URL%/test-media/libre_jpeg.1000x1000.jpg"
-    />
+    <div class="side-by-side">
+        <h3>Documents: PDF</h3>
+        <img
+            src="%PUBLIC_URL%/test-media/imrtemplate_doc.200x200.jpg"
+            width="200"
+            height="200"
+            omnic-thumb
+            omnic-viewer="PDF"
+            omnic-viewer-src="%PUBLIC_URL%/test-media/imrtemplate_doc.pdf"
+        />
+    </div>
+
+    <div class="side-by-side">
+        <h3>Mesh: STL</h3>
+        <img
+            src="%PUBLIC_URL%/test-media/gear_stl.200x200.jpg"
+            width="200"
+            height="200"
+            omnic-thumb
+            omnic-viewer="STL"
+            omnic-viewer-src="%PUBLIC_URL%/test-media/gear_stl.stl"
+        />
+    </div>
+
+    <div class="side-by-side">
+        <h3>Image: JPEG</h3>
+        <img
+            src="%PUBLIC_URL%/test-media/libre_jpeg.200x200.jpg"
+            width="200"
+            height="200"
+            omnic-thumb
+            omnic-viewer="JPEG"
+            omnic-viewer-src="%PUBLIC_URL%/test-media/libre_jpeg.1000x1000.jpg"
+        />
+    </div>
+
   </body>
 </html>
