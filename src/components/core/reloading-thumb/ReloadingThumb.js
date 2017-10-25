@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './ReloadingThumb.css';
+import LoadingSpinner from '../../widgets/loading-spinner/LoadingSpinner';
 
 // Bring in image
-import loadingCircle from './loading-circle.svg'
+// import loadingCircle from './loading-circle.svg'
 
 const CACHE_BUST_PARAM = 'ignore-viewercache';
 
@@ -49,7 +49,7 @@ export default class ReloadingThumb extends Component {
             if (!this.state.isLoading) {
                 this.setState({ isLoading: true });
             } else {
-                this.timeout = setTimeout(() => { this.retryThumb(); }, retryTimeout);
+                this.timeout = setTimeout(() => this.retryThumb(), retryTimeout);
             }
         } else {
             if (this.state.isLoading) {
@@ -81,19 +81,8 @@ export default class ReloadingThumb extends Component {
 
     render() {
         const { isLoading } = this.state;
-
-        const floatingImageComponent = isLoading ? (
-            <img
-                alt=""
-                className="OC--ReloadingThumb--float-image OC--ReloadingThumb--float-image-spin"
-                onClick={this.props.onClick}
-                src={loadingCircle}
-            />
-        ) : null;
-
-        const { height, width } = this.props;
+        const { height, width, onClick } = this.props;
         const style = { height, width };
-
         return (
             <div className="OC--ReloadingThumb" style={style}>
                 <img
@@ -101,10 +90,14 @@ export default class ReloadingThumb extends Component {
                     width={width}
                     height={height}
                     ref={(thumb) => { this.thumbElement = thumb; }}
-                    onClick={this.props.onClick}
+                    onClick={onClick}
                     onLoad={() => this.checkThumb()}
                 />
-                { floatingImageComponent }
+                {
+                    isLoading ? (
+                        <LoadingSpinner onClick={onClick} />
+                    ) : null
+                }
             </div>
         );
     }

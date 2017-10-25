@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ViewerMounter from './components/ViewerMounter';
+import ViewerMounter from './components/core/viewer-mounter/ViewerMounter';
 import ViewerLoader from './ViewerLoader';
 import registerServiceWorker from './registerServiceWorker';
 

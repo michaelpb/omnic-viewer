@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './ReloadingThumb.css';
+import LoadingSpinner from '../../widgets/loading-spinner/LoadingSpinner';
 
 // Bring in image
-import loadingCircle from './loading-circle.svg'
+// import loadingCircle from './loading-circle.svg'
 
 const CHECKING_PARAM = 'just_checking';
 
@@ -76,22 +76,11 @@ export default class ReloadingViewer extends Component {
 
     render() {
         const { isLoading } = this.state;
-
-        const children = isLoading ? (
-            <img
-                alt=""
-                className="OC--ReloadingThumb--float-image OC--ReloadingThumb--float-image-spin"
-                onClick={this.props.onClick}
-                src={loadingCircle}
-            />
-        ) : this.props.children;
-
-        const { height, width } = this.props;
+        const { height, width, children } = this.props;
         const style = width && height ? { height, width } : {};
-
         return (
             <div className="OC--ReloadingThumb" style={style}>
-                { children }
+                { isLoading ? (<LoadingSpinner />) : children }
             </div>
         );
     }

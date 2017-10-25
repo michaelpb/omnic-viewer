@@ -1,0 +1,25 @@
+/* Centered */
+.OC--LoadingSpinner {
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    margin-left: -35px;
+    margin-top: -35px;
+}
+
+/* Spin animation */
+.OC--LoadingSpinner {
+    opacity: 1.0;
+    -webkit-animation: OC--LoadingSpinner--spin 3s linear infinite;
+    -moz-animation: OC--LoadingSpinner--spin 3s linear infinite;
+    animation: OC--LoadingSpinner--spin 3s linear infinite;
+}
+
+@-moz-keyframes  OC--LoadingSpinner--spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes  OC--LoadingSpinner--spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes  OC--LoadingSpinner--spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+

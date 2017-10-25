@@ -1,28 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
-import ViewerLoader from '../ViewerLoader';
-import ReloadingThumb from './ReloadingThumb';
-import ReloadingViewer from './ReloadingViewer';
+import ViewerLoader from '../../../ViewerLoader';
+import ReloadingThumb from '../reloading-thumb/ReloadingThumb';
+import ReloadingViewer from '../reloading-viewer/ReloadingViewer';
 import './ViewerMounter.css';
-
-// Bring in image
-import loadingCircle from './loading-circle.svg'
-import playButtonCircle from './play-button-circle.svg'
 
 export default class ViewerMounter extends Component {
     static propTypes = {
-        thumbRetryTimeout: PropTypes.number,
         thumbSrc: PropTypes.string,
         viewerLoader: PropTypes.instanceOf(ViewerLoader).isRequired,
         viewerType: PropTypes.string.isRequired,
         viewerSrc: PropTypes.string.isRequired,
         width: PropTypes.number.isRequired,
         height: PropTypes.number.isRequired,
-    }
-
-    static defaultProps = {
-        thumbRetryTimeout: 2000, // check after 2 seconds
     }
 
     state = {
