@@ -1,0 +1,10 @@
+.OC--ImageViewer {
+    min-width: 200px;
+    min-height: 200px;
+    text-align: center;
+}
+
+.OC--ImageViewer img {
+    display: inline-block;
+}
+

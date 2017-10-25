@@ -22,23 +22,19 @@ export default class ViewerMounter extends Component {
 
     renderViewer() {
         const { viewerType, viewerLoader, viewerSrc } = this.props;
-        if (viewerType === 'JPEG') {
+        const Component = viewerLoader.get(viewerType);
+        if (Component === null) {
             return (
-                <div>
-                    <img src={viewerSrc} />
-                </div>
-            );
-        } else {
-            const Component = viewerLoader.get(viewerType);
-            return (
-                <div>
-                    <Component
-                        src={viewerSrc}
-                        type={viewerType}
-                    />
-                </div>
-            );
+                <div><strong>No viewer for: {viewerType}</strong></div>
+            )
         }
+
+        return (
+            <Component
+                src={viewerSrc}
+                type={viewerType}
+            />
+        );
     }
 
     onClick() {
