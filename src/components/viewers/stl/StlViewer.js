@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-/* import { Document, Page } from 'react-pdf'; */
-import { } from 'react-pdf/build/entry.webpack';
 
-// import STLViewer from 'stl-viewer'
-
+import Jsc3dViewer from 'react-jsc3d'
 
 export default class PdfViewer extends Component {
     static propTypes = {
@@ -12,24 +9,9 @@ export default class PdfViewer extends Component {
     }
 
     render() {
-        return (<div>Placeholder!</div>);
-
-        /*
         return (
-            <div>
-                <STLViewer
-                    url={this.props.src}
-                    loading={false}
-                    width={400}
-                    height={400}
-                    modelColor='#B92C2C'
-                    backgroundColor='#EAEAEA'
-                    rotate={true}
-                    orbitControls={true}
-                />
-            </div>
+            <Jsc3dViewer sceneUrl={this.props.src} />
         );
-        */
     }
 }
 
