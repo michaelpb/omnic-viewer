@@ -27,7 +27,6 @@
     "prop-types": "15.6.0",
     "react": "16.0.0",
     "react-dom": "16.0.0",
-    "react-file-viewer": "0.3.48",
     "react-jsc3d": "^0.1.7",
     "react-modal": "3.0.4",
     "react-pdf": "2.1.7",
