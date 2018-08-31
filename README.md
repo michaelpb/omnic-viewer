@@ -14,6 +14,10 @@ It can also be used directly within a larger React.js application.
 * **WIP:** API subject to drastic change, and not yet documented. Not ready for
 public usage, mostly just intended to be used as an internally used library.
 
+# Example
+
+![Example Gif](./mock-omnic/test-media/example_gif.gif)
+
 # Usage
 
 1. Use a pre-built script tag (TODO: Don't have one up yet!), or build
@@ -63,6 +67,6 @@ Enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement).
 
 # [Contributing](CONTRIBUTING.md)
 
-**This software is free software, licensed under the GPL 3.0.**
+**This software is free software, licensed under the LGPL 3.0.**
 
 
