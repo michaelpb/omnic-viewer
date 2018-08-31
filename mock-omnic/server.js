@@ -9,6 +9,7 @@ app.get('/mock-omnic/clear-cache/', (req, res) => {
     cached = {};
     res.json({});
 });
+const SLOW_SERVER_TIME = 2500;
 
 app.get('/media/:filename', (req, res) => {
     const { filename } = req.params;
@@ -28,7 +29,7 @@ app.get('/media/:filename', (req, res) => {
         setTimeout(() => {
             console.log('-- Mock Omnic -- finished: ', filename);
             cached[filename] = true;
-        }, 2500);
+        }, SLOW_SERVER_TIME);
 
         // Send back JSON of only if cached or not
         if (req.query.just_checking) {

@@ -20,6 +20,8 @@ second delay to serving up all media and serving placeholders instead.
 
 # Contributing a converter
 
+* [See the TODO.md for ideas](TODO.md)
+
 * **WIP:** The current viewer system API will change: This is will eventually
   be an extensible system for which custom builds including or excluding
   certain types are readily available (not everyone wants a kitchen-sink

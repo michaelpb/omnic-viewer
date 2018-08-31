@@ -1,8 +1,6 @@
 # OmniC Viewer
 
-![Travis CI](https://travis-ci.org/michaelpb/omnic-viewer.svg?branch=master)
-
-![OmniC Viewer badge](https://badge.fury.io/js/omnic-viewer.png)
+![Travis CI](https://travis-ci.org/michaelpb/omnic-viewer.svg?branch=master) ![OmniC Viewer badge](https://badge.fury.io/js/omnic-viewer.png)
 
 ![Logo](./mock-omnic/test-media/logo_small.png) **OmniC Viewer** is a framework
 agnostic file viewer bundle that can visualize in different ways a variety of
